@@ -37,9 +37,22 @@ public class GamblerSimulator{
 		return stake;
 	}
 
+	//UC4 Total Amount for 20 days
+	public int totalAmount(){
+		int day = 1;
+		int numofDays = 20;
+		int totalStake = 0;
+		while(day < numofDays){
+			totalStake = totalStake+resignGame();
+			day++;
+		}
+		return totalStake;
+	}
+
 	public static void main(String[] args){
 		GamblerSimulator gamble = new GamblerSimulator();
 		gamble.winOrLoss();
-		System.out.println(gamble.resignGame());
+		System.out.println("Stake Amount for Day 1: "+gamble.resignGame());
+		System.out.println("Stake Amount for 20 days: "+gamble.totalAmount());
 	}
 }
